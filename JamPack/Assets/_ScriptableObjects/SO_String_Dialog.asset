@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0590f6d2f07c24c4593d72a3d22e5f11, type: 3}
   m_Name: SO_String_Dialog
   m_EditorClassIdentifier: 
-  value: 
+  value: Pequeno

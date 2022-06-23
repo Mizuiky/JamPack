@@ -5,13 +5,16 @@ using UnityEngine;
 public class DialogTrigger : MonoBehaviour
 {
     [SerializeField]
-    private SO_Dialog _dialog;
+    private SO_Dialog _soDialog;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
         {
-            //send the dialog to be played by the dialog manager
+            if (!DialogManager.Instance.ISWriting)
+            {
+                DialogManager.Instance.Initialize(_soDialog);
+            }         
         }
     }
 }
