@@ -6,7 +6,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class SO_Dialog : ScriptableObject
 {
-    public DialogData[] _dialogs;
+    [SerializeField]
+    private string _characterName;
+
+    [SerializeField]
+    private DialogData[] _dialogs;
 }
 
 [Serializable]
@@ -14,6 +18,9 @@ public class DialogData
 {
     [SerializeField]
     private SpriteRenderer _image;
+
+    [SerializeField]
+    private Animator _animator;
 
     [SerializeField]
     [TextArea(5, 100)]
