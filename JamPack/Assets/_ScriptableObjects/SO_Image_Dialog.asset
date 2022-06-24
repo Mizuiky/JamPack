@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0590f6d2f07c24c4593d72a3d22e5f11, type: 3}
-  m_Name: SO_String_Dialog
+  m_Script: {fileID: 11500000, guid: 657bfe88da23e8945857e3b1c84c7135, type: 3}
+  m_Name: SO_Image_Dialog
   m_EditorClassIdentifier: 
-  value: 
+  _image: {fileID: 0}

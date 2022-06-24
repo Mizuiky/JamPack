@@ -12,25 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba8900c88b862b41bb804501408d85a, type: 3}
   m_Name: SO_NPC_X
   m_EditorClassIdentifier: 
-  _characterName: "Av\xF4"
   _dialog:
-  - _image: {fileID: 0}
+  - _characterName: Avo
+    _image: {fileID: 21300000, guid: 01e095d6eb9c54de18317c5e7f0df125, type: 3}
     _animator: {fileID: 0}
     _text: "Pequeno Shiro, este nosso vilarejo guarda um segredo, algo misterioso
       do qual diz a lenda que a cada 1000 anos o c\xE9u fica iluminado"
-  - _image: {fileID: 0}
+  - _characterName: Shiro
+    _image: {fileID: 21300000, guid: 358c17b4dd4c0461f8bcaf75f245f54e, type: 3}
     _animator: {fileID: 0}
     _text: "muitas estrelas caem e causam um grande impacto, estrelas s\xE3o bonitas
       sim.. "
-  - _image: {fileID: 0}
-    _animator: {fileID: 0}
-    _text: "Mas junto delas um monstro aparece causando muita destrui\xE7\xE3o, nossos
-      antepassados acharam a solu\xE7\xE3o, "
-  - _image: {fileID: 0}
-    _animator: {fileID: 0}
-    _text: "as estrelas s\xE3o a chave para selar o monstro e leva-lo de volta ao
-      planeta de onde veio.\r\n\r\n"
-  - _image: {fileID: 0}
-    _animator: {fileID: 0}
-    _text: "Portanto se algum dia voc\xEA ver brilhos dourados percorrendo o c\xE9u,
-      tenha certeza de ir busc\xE1-las."

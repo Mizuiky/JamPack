@@ -9,8 +9,9 @@ public class DialogBox : MonoBehaviour
     #region Serializable Fields
 
     [Header("DialogBox components")]
+
     [SerializeField]
-    private SO_String _dialogText;
+    private SO_String _textData;
 
     [SerializeField]
     private TextMeshProUGUI _textBox;
@@ -21,28 +22,70 @@ public class DialogBox : MonoBehaviour
     [SerializeField]
     private Image _image;
 
+    [SerializeField]
+    private Button _next;
+
     #endregion
 
     private void Start()
     {
-        Init();
-    }
-
-    private void Init()
-    {
-        _dialogText.value = "";
-        _textBox.text = "";
-        _characterName.text = "";
-        _image = null;
+        ClearFields();
+        Enable(false);
     }
 
     private void Update()
     {
-        SetText();
+        if(DialogManager.Instance.ISWriting)
+        {
+            SetText();
+        }
+    }
+
+    public void ClearFields()
+    {
+        DisableNextButton();
+
+        _textData.value = "";
+        _textBox.text = "";
+
+        _characterName.text = "";
     }
 
     private void SetText()
     {
-        _textBox.text = _dialogText.value;
+        if (_textData.value != null)
+            _textBox.text = _textData.value;
+    }
+
+    public void SetName(string name)
+    {
+        if (name != null)
+            _characterName.text = name;
+    }
+
+    public void SetImage(Sprite image)
+    {
+        if(image != null)
+            _image.sprite = image;
+    }
+
+    public void Enable(bool open)
+    {
+        this.gameObject.SetActive(open);
+    }
+
+    public void DisableNextButton()
+    {
+        _next.interactable = false;
+    }
+    public void EnableNextButton()
+    {
+        _next.interactable = true;
+    }
+
+    public void Next()
+    {
+        if(_next.interactable)
+            DialogManager.Instance.NextDialog();
     }
 }

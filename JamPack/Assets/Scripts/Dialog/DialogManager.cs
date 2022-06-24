@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core;
 using System;
+using UnityEngine.UI;
 
 public class DialogManager : Singleton<DialogManager>
 {
     #region Serializable Fields
 
     [Header("Dialog Setup")]
+
+    [SerializeField]
+    private DialogBox _dialogBox;
 
     [SerializeField]
     private SO_String _text;
@@ -45,20 +49,17 @@ public class DialogManager : Singleton<DialogManager>
     private void Init()
     {
         _isWriting = false;
-
         _currentDialogIndex = 0;
     }
 
     public void Initialize(SO_Dialog data)
     {
-        ClearPreviousData();
+        _dialogBox.Enable(true);
 
+        ClearPreviousData();
         Init();
 
         _dialogs = data._dialog.ToArray();
-
-        Debug.Log(_dialogs[0]._text);
-
         Write();
     }
 
@@ -68,7 +69,9 @@ public class DialogManager : Singleton<DialogManager>
         {
             _dialogs = null;
             GC.Collect();
-        }    
+        }
+
+        _dialogBox.ClearFields();
     }
 
     public void Write()
@@ -80,11 +83,14 @@ public class DialogManager : Singleton<DialogManager>
 
     private IEnumerator WriteText()
     {     
-        var text = _dialogs[_currentDialogIndex]._text.ToCharArray();
+        var aux = _dialogs[_currentDialogIndex];
 
-        Debug.Log(text);
+        _dialogBox.SetName(aux._characterName);
+        _dialogBox.SetImage(aux._image);
 
-        foreach(char letter in text)
+        var dialog = aux._text.ToCharArray();
+
+        foreach (char letter in dialog)
         {
             _text.value += letter;
 
@@ -92,20 +98,27 @@ public class DialogManager : Singleton<DialogManager>
         }
        
         _isWriting = false;
+
+        _dialogBox.EnableNextButton();
     }
 
     public void NextDialog()
     {
-        if(!_isWriting)
+        if (!_isWriting)
         {
+            _dialogBox.DisableNextButton();
+
             _currentDialogIndex++;
 
             if (_currentDialogIndex == _dialogs.Length)
+            {
+                _dialogBox.Enable(false);
                 return;
-
+            }
+                
             _text.value = "";
 
             Write();
         }       
-    }
+    }  
 }

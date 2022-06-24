@@ -67,8 +67,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 01e095d6eb9c54de18317c5e7f0df125, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -294,7 +294,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1374360900649237817}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6442976573852665114}
+        m_TargetAssemblyTypeName: DialogBox, Assembly-CSharp
+        m_MethodName: Next
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1374360900979767703
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,7 +830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f43377ab47dfbc4ea9736aeebbc4495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogText: {fileID: 11400000, guid: f6a0f1284ec9acd4b9a0e3006d2a1041, type: 2}
+  _textData: {fileID: 11400000, guid: f6a0f1284ec9acd4b9a0e3006d2a1041, type: 2}
   _textBox: {fileID: 1374360901925588562}
   _characterName: {fileID: 1374360901614813147}
   _image: {fileID: 1374360900405220438}
+  _next: {fileID: 1374360900649237816}
