@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Core;
+using Core.Singleton;
 using System;
 using UnityEngine.UI;
 
@@ -30,6 +30,8 @@ public class DialogManager : Singleton<DialogManager>
 
     private DialogData[] _dialogs;
 
+    private EndDialogBase _endDialog;
+
     #endregion
 
     #region Properties
@@ -54,12 +56,15 @@ public class DialogManager : Singleton<DialogManager>
 
     public void Initialize(SO_Dialog data)
     {
-        _dialogBox.Enable(true);
-
         ClearPreviousData();
         Init();
 
         _dialogs = data._dialog.ToArray();
+
+        _endDialog = data._endPrefab;
+
+        _dialogBox.ActivateDialog(true);
+
         Write();
     }
 
@@ -112,7 +117,10 @@ public class DialogManager : Singleton<DialogManager>
 
             if (_currentDialogIndex == _dialogs.Length)
             {
-                _dialogBox.Enable(false);
+                if(_endDialog != null)
+                    _endDialog.EndCallBack();
+
+                _dialogBox.ActivateDialog(false);
                 return;
             }
                 

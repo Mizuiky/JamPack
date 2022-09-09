@@ -27,18 +27,10 @@ public class DialogBox : MonoBehaviour
 
     #endregion
 
-    private void Start()
-    {
-        ClearFields();
-        Enable(false);
-    }
-
     private void Update()
     {
         if(DialogManager.Instance.ISWriting)
-        {
             SetText();
-        }
     }
 
     public void ClearFields()
@@ -69,9 +61,9 @@ public class DialogBox : MonoBehaviour
             _image.sprite = image;
     }
 
-    public void Enable(bool open)
+    public void ActivateDialog(bool activate)
     {
-        this.gameObject.SetActive(open);
+        gameObject.SetActive(activate);
     }
 
     public void DisableNextButton()
